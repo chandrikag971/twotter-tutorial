@@ -1,6 +1,11 @@
 <template>
  <div id="app">
-  {{user.username}}
+  @{{user.username}} - {{fullname}}
+  <strong>followers: </strong> {{followers}}
+  
+  <button @click="followuser">
+    Hi
+  </button>
  </div>
 </template>
 <script>
@@ -18,6 +23,26 @@ export default {
         lastname:"G"
       }
     }
+  },
+  watch: {
+    followers(newfollowercount,oldfollowercount){
+       if(newfollowercount>oldfollowercount) {
+          console.log(`${this.user.username} has gained a follower!`)
+      }
+    }
+  },
+  computed: {
+    fullname() {
+      return `${this.user.firstname} ${this.user.lastname}`;
+    }
+  },
+  methods: {
+    followuser() {
+      this.followers++
+    }
+  },
+  mounted() {
+    this.followuser();
   }
 }
 </script>
@@ -27,8 +52,9 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  display:flex;
+  flex-direction:column;
+  text-align:center;
 }
 </style>
