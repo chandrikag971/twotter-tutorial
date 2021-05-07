@@ -40,6 +40,8 @@ export default {
 	box-sizing:border-box;
 	cursor:pointer;
 	transition: all 0.25 ease;
+	display:flex;
+	flex-direction:column;
 }
 
 .twoot-item:hover {
