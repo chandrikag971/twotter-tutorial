@@ -5,6 +5,7 @@ import Home from '../views/Home.vue'
 import UserProfile from "../views/UserProfile";
 import Admin from '../views/Admin';
 import AboutUs from '../views/about'
+import ContactUs from '../views/contact';
 
 const routes = [
   {
@@ -29,7 +30,12 @@ const routes = [
     path: "/aboutus",
     name: "AboutUs",
     component: AboutUs
-  }
+  },
+  {
+    path:"/contactus",
+    name: "ContactUs",
+    component: ContactUs
+  },
 ]
 
 const router = createRouter({

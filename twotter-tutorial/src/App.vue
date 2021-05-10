@@ -9,6 +9,9 @@
       <router-link to="/aboutus">
         <div class="navigation_about"> About US</div>
       </router-link>
+      <router-link to="/contactus">
+        <div class="navigation_contact"> Contact Us</div>
+      </router-link>
       <div class="navigation_user" v-if= "user">
         _Chandrika
       </div>
