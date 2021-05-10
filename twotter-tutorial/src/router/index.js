@@ -4,6 +4,7 @@ import { users } from "../assets/users.js";
 import Home from '../views/Home.vue'
 import UserProfile from "../views/UserProfile";
 import Admin from '../views/Admin';
+import AboutUs from '../views/about'
 
 const routes = [
   {
@@ -23,6 +24,11 @@ const routes = [
     meta: {
       requiresAdmin: true
     }
+  },
+  {
+    path: "/aboutus",
+    name: "AboutUs",
+    component: AboutUs
   }
 ]
 

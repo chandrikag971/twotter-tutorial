@@ -6,6 +6,9 @@
           Twotter
         </div>
       </router-link>
+      <router-link to="/aboutus">
+        <div class="navigation_about"> About US</div>
+      </router-link>
       <div class="navigation_user" v-if= "user">
         _Chandrika
       </div>
