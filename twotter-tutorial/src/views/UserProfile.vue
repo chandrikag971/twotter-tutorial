@@ -25,7 +25,9 @@
 
 
 <script>
-import{ reactive } from 'vue';
+import{ reactive, computed } from 'vue';
+import { useRoute } from 'vue-router';
+import { users } from "../assets/users";
 import TwootItem from "../components/TwootItem";
 import CreateTwootPanel from "../components/CreateTwootPanel";
 
@@ -33,21 +35,13 @@ export default {
   name: "Userprofile",
   components: { CreateTwootPanel,  TwootItem },
   setup() {
-  const state=reactive({
-    followers:0,
-    user: {
-        id:1,
-        username:"_Chandrika",
-        firstname:"chandu",
-        lastname:"G",
-        email:'chandrikag971@gmail.com',
-        isAdmin:true,
-        twoots: [
-          { id:1,content:"This is a vue framework"},
-          { id:2,content:"It is used for developing websites"}
-        ]
-      }
-  })
+    const route=useRoute();
+    const userId=computed(() => route.params.userId)
+
+    const state=reactive({
+      followers:0,
+      user: users[userId.value - 1] || users[0]
+    })
 
   function addTwoot(twoot) {
     state.user.twoots.unshift({id:state.user.twoots.length + 1, content: twoot });
@@ -55,7 +49,8 @@ export default {
 
   return {
     state,
-    addTwoot
+    addTwoot,
+    userId
     }
   }
 };
